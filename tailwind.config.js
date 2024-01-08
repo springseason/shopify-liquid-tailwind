@@ -6,6 +6,7 @@ module.exports = {
     './templates/customers/*.liquid',
     './sections/*.liquid',
     './snippets/*.liquid',
+    './node_modules/flowbite/**/*.js',
   ],
   theme: {
     screens: {
@@ -25,5 +26,5 @@ module.exports = {
       black: '#000000',
     },
   },
-  plugins: [],
+  plugins: [require('flowbite/plugin')],
 };

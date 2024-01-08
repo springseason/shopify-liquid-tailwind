@@ -1,0 +1,134 @@
+{% render 'anno-bar', blocks: section.blocks %}
+{% schema %}
+{
+  "name": "t:sections.announcement-bar.name",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "checkbox",
+      "label": "Enable slider autoplay",
+      "id": "enable_autoplay",
+      "default": true
+    },
+    {
+      "type": "select",
+      "label": "Bar height",
+      "id": "bar_height",
+      "options": [
+        {
+          "value": "2.5rem",
+          "label": "Small"
+        },
+        {
+          "value": "3.5rem",
+          "label": "Default"
+        },
+        {
+          "value": "5rem",
+          "label": "Large"
+        }
+      ],
+      "default": "3.5rem"
+    },
+    {
+      "type": "range",
+      "label": "Autoplay interval",
+      "id": "autoplay_interval",
+      "min": 0,
+      "max": 9000,
+      "step": 1000,
+      "unit": "ms",
+      "default": 3000
+    },
+    {
+      "type": "range",
+      "label": "Navigation offset",
+      "info": "desktop only",
+      "id": "nav_offset",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "%",
+      "default": 25
+    },
+    {
+      "type": "select",
+      "label": "Animation Option",
+      "id": "animation_option",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "slider-nav-animation-slideup",
+          "label": "Slide up"
+        },
+        {
+          "value": "slider-nav-animation-slidedown",
+          "label": "Slide down"
+        },
+        {
+          "value": "slider-nav-animation-fadein",
+          "label": "Fade in"
+        },
+        {
+          "value": "slider-nav-animation-scale",
+          "label": "Scale"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "select",
+      "label": "Animation speed",
+      "id": "animation_speed",
+      "options": [
+        {
+          "value": "slider-nav-animation-slow",
+          "label": "Slow"
+        },
+        {
+          "value": "none",
+          "label": "Default"
+        },
+        {
+          "value": "slider-nav-animation-fast",
+          "label": "Fast"
+        }
+      ],
+      "default": "none"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "t:sections.announcement-bar.blocks.announcement.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
+        },
+        {
+          "type": "color",
+          "id": "bgcolor",
+          "default": "#000000",
+          "label": "Background color"
+        },
+        {
+          "type": "color",
+          "id": "fontcolor",
+          "default": "#FFFFFF",
+          "label": "Text color"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
