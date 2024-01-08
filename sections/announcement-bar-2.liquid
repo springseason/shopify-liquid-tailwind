@@ -1,99 +1,4 @@
-{%- liquid
-  assign height = section.settings.bar_height | default: 'unset'
-  assign offset = section.settings.nav_offset | default: 0
-  assign autoplay = section.settings.enable_autoplay | default: false
-  assign autoplay_interval = section.settings.autoplay_interval | default: 5000
--%}
-
-<script
-  src='{{ "swiffy-slider.js" | asset_url }}'
-  defer
-></script>
-<link
-  rel='stylesheet'
-  href='{{ "swiffy-slider.css" | asset_url }}'
->
-<style>
-  {% comment %} SHOPIFY Editor settings {% endcomment %}
-  .swiffy-slider {
-    height: {{ height }}
-  }
-  .slider-nav.with-offset {
-    left: {{ offset }}%;
-  }
-  .slider-nav.slider-nav-next.with-offset {
-    right: {{ offset }}%;
-    left: unset;
-  }
-  {% comment %} SHOPIFY Editor settings END {% endcomment %}
-  {% comment %} SWIFFY Overrides {% endcomment %}
-  .slider-nav {
-    filter: none;
-  }
-  .slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .slide>div {
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-  }
-  {% comment %} SWIFFY Overrides end {% endcomment %}
-</style>
-
-<div
-  {% if autoplay %}
-    data-slider-nav-autoplay-interval='{{ autoplay_interval }}'
-  {% endif %}
-  class='swiffy-slider{% if autoplay %} slider-nav-autoplay slider-nav-autopause{% endif %} slider-item-nogap slider-adaptive-color slider-nav-sm{% unless section.settings.animation_option == 'none' %} slider-nav-animation {{ section.settings.animation_option }}{% endunless %}{% unless section.settings.animation_speed == 'none' %} {{ section.settings.animation_speed }}{%endunless %}'
->
-  <ul class='slider-container'>
-    {%- for block in section.blocks -%}
-      <div
-        data-fontcolor='{{ block.settings.fontcolor }}'
-        style='background-color:{{ block.settings.bgcolor }}; color: {{ block.settings.fontcolor }}'
-        class='slide'
-      >
-        <div>
-          <p>
-            {{ block.settings.text | escape }}
-          </p>
-          {%- if block.settings.link != blank -%}
-            <span>
-              <a href='{{ block.settings.link }}'>
-                {% render 'icon-arrow' %}
-              </a>
-            </span>
-          {%- endif -%}
-        </div>
-      </div>
-    {%- endfor -%}
-  </ul>
-
-  {% if section.blocks.size > 1 %}
-    <button
-      type='button'
-      class='slider-nav{% if offset > 0 %} with-offset{% endif %}'
-    ></button>
-    <button
-      type='button'
-      class='slider-nav slider-nav-next{% if offset > 0 %} with-offset{% endif %}'
-    ></button>
-  {% endif %}
-
-  <div class='slider-indicators hidden'>
-    {% for block in section.blocks %}
-      <button
-        {% if forloop.first %}
-          class='active'
-        {% endif %}
-      ></button>
-    {% endfor %}
-  </div>
-</div>
-
+{% render 'anno-bar', blocks: section.blocks %}
 {% schema %}
 {
   "name": "t:sections.announcement-bar.name",
@@ -110,9 +15,18 @@
       "label": "Bar height",
       "id": "bar_height",
       "options": [
-        { "value": "2.5rem", "label": "Small" },
-        { "value": "3.5rem", "label": "Default" },
-        { "value": "5rem", "label": "Large" }
+        {
+          "value": "2.5rem",
+          "label": "Small"
+        },
+        {
+          "value": "3.5rem",
+          "label": "Default"
+        },
+        {
+          "value": "5rem",
+          "label": "Large"
+        }
       ],
       "default": "3.5rem"
     },
@@ -142,11 +56,26 @@
       "label": "Animation Option",
       "id": "animation_option",
       "options": [
-        { "value": "none", "label": "None" },
-        { "value": "slider-nav-animation-slideup", "label": "Slide up" },
-        { "value": "slider-nav-animation-slidedown", "label": "Slide down" },
-        { "value": "slider-nav-animation-fadein", "label": "Fade in" },
-        { "value": "slider-nav-animation-scale", "label": "Scale" }
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "slider-nav-animation-slideup",
+          "label": "Slide up"
+        },
+        {
+          "value": "slider-nav-animation-slidedown",
+          "label": "Slide down"
+        },
+        {
+          "value": "slider-nav-animation-fadein",
+          "label": "Fade in"
+        },
+        {
+          "value": "slider-nav-animation-scale",
+          "label": "Scale"
+        }
       ],
       "default": "none"
     },
@@ -155,9 +84,18 @@
       "label": "Animation speed",
       "id": "animation_speed",
       "options": [
-        { "value": "slider-nav-animation-slow", "label": "Slow" },
-        { "value": "none", "label": "Default" },
-        { "value": "slider-nav-animation-fast", "label": "Fast" }
+        {
+          "value": "slider-nav-animation-slow",
+          "label": "Slow"
+        },
+        {
+          "value": "none",
+          "label": "Default"
+        },
+        {
+          "value": "slider-nav-animation-fast",
+          "label": "Fast"
+        }
       ],
       "default": "none"
     }
@@ -170,7 +108,6 @@
         {
           "type": "text",
           "id": "text",
-          "default": "Welcome to our store",
           "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
         },
         {
@@ -192,28 +129,6 @@
         }
       ]
     }
-  ],
-  "default": {
-    "blocks": [
-      {
-        "type": "announcement",
-        "settings": {
-          "text": "🎄 FINAL CALL for Christmas 2023 orders - read more🎄",
-          "bgcolor": "#D1BFD9",
-          "fontcolor": "#FFFFFF",
-          "link": "https://petitpuk.com/pages/season-2023-deliveries-after-sales"
-        }
-      },
-      {
-        "type": "announcement",
-        "settings": {
-          "text": "★ NEW! Kids BOXSPRING with €150 DISCOUNT★ GO SEE!",
-          "bgcolor": "#DB6366",
-          "fontcolor": "#212A4C",
-          "link": ""
-        }
-      }
-    ]
-  }
+  ]
 }
 {% endschema %}

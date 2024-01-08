@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "storybook": "storybook dev -s ../assets -p 6006",
+    "build-storybook": "storybook build",
+    "tailwind:w": "tailwindcss -i ./assets/app-tailwind.css -o ./assets/app.css --watch"
   },
   "repository": {
     "type": "git",
@@ -18,15 +21,32 @@
   },
   "homepage": "https://github.com/TrellisCommerce/shopify-dawn-tailwind-starter-base#readme",
   "devDependencies": {
+    "@storybook/addon-actions": "^7.6.7",
+    "@storybook/addon-essentials": "^7.6.7",
+    "@storybook/addon-interactions": "^7.6.7",
+    "@storybook/addon-links": "^7.6.7",
+    "@storybook/blocks": "^7.6.7",
+    "@storybook/html": "^7.6.7",
+    "@storybook/html-vite": "^7.6.7",
+    "@storybook/jest": "^0.2.3",
+    "@storybook/test": "^7.6.7",
+    "@storybook/testing-library": "^0.2.2",
+    "@vituum/vite-plugin-liquid": "^1.1.0",
     "autoprefixer": "^10.4.4",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.3",
+    "liquidjs": "^10.10.0",
     "postcss": "^8.4.12",
     "prettier": "^2.5.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.6.7",
+    "storybook-liquid-render": "^1.0.1",
     "tailwindcss": "^3.0.24"
   },
   "dependencies": {
-    "@trelliscommerce/prettier-config": "^1.0.0"
+    "@trelliscommerce/prettier-config": "^1.0.0",
+    "flowbite": "^2.2.1"
   },
   "prettier": "@trelliscommerce/prettier-config",
   "lint-staged": {

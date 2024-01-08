@@ -8,16 +8,19 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
-            "text_alignment": "center",
-            "color_scheme": "background-1",
-            "link": ""
+            "text": "Welcome to our store XXXX"
+          }
+        },
+        "announcement-bar-1": {
+          "type": "announcement",
+          "settings": {
+            "text": "Welcome to our store with Lnk",
+            "link": "https://www.google.com",
+            "bgcolor": "#FF0E0E"
           }
         }
       },
-      "block_order": [
-        "announcement-bar-0"
-      ]
+      "block_order": ["announcement-bar-0", "announcement-bar-1"]
     },
     "header": {
       "type": "header",
@@ -37,8 +40,5 @@
       }
     }
   },
-  "order": [
-    "announcement-bar",
-    "header"
-  ]
+  "order": ["announcement-bar", "header"]
 }
