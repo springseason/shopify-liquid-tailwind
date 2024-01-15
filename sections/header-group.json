@@ -9,6 +9,8 @@
           "type": "announcement",
           "settings": {
             "text": "Welcome to our store",
+            "bgcolor": "#000000",
+            "fontcolor": "#FFFFFF",
             "link": ""
           }
         },
@@ -16,6 +18,8 @@
           "type": "announcement",
           "settings": {
             "text": "Hello",
+            "bgcolor": "#000000",
+            "fontcolor": "#FFFFFF",
             "link": ""
           }
         },
@@ -23,6 +27,8 @@
           "type": "announcement",
           "settings": {
             "text": "Szia",
+            "bgcolor": "#000000",
+            "fontcolor": "#FFFFFF",
             "link": ""
           }
         }
@@ -33,13 +39,12 @@
         "a2461923-f1d9-4c9f-8c35-8a7d948ce0ce"
       ],
       "settings": {
-        "color_scheme": "",
-        "show_line_separator": true,
-        "show_social": false,
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "enable_country_selector": false,
-        "enable_language_selector": false
+        "enable_autoplay": true,
+        "bar_height": "3.5rem",
+        "autoplay_interval": 3000,
+        "nav_offset": 25,
+        "animation_option": "none",
+        "animation_speed": "none"
       }
     },
     "header": {
@@ -47,7 +52,7 @@
       "settings": {
         "logo_position": "middle-left",
         "menu": "main-menu",
-        "menu_type_desktop": "dropdown",
+        "menu_type_desktop": "mega",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
         "color_scheme": "background-1",
@@ -61,5 +66,8 @@
       }
     }
   },
-  "order": ["announcement-bar", "header"]
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
 }
