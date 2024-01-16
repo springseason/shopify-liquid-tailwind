@@ -26,5 +26,5 @@ module.exports = {
       black: '#000000',
     },
   },
-  plugins: [require('flowbite/plugin')],
+  plugins: [require('preline/plugin')],
 };

@@ -31,6 +31,7 @@
     "@storybook/jest": "^0.2.3",
     "@storybook/test": "^7.6.7",
     "@storybook/testing-library": "^0.2.2",
+    "@tailwindcss/forms": "^0.5.7",
     "@vituum/vite-plugin-liquid": "^1.1.0",
     "autoprefixer": "^10.4.4",
     "husky": "^7.0.4",
@@ -38,15 +39,13 @@
     "liquidjs": "^10.10.0",
     "postcss": "^8.4.12",
     "prettier": "^2.5.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "storybook": "^7.6.7",
     "storybook-liquid-render": "^1.0.1",
     "tailwindcss": "^3.0.24"
   },
   "dependencies": {
     "@trelliscommerce/prettier-config": "^1.0.0",
-    "flowbite": "^2.2.1"
+    "preline": "^2.0.3"
   },
   "prettier": "@trelliscommerce/prettier-config",
   "lint-staged": {
