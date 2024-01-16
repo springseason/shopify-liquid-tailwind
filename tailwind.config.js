@@ -22,8 +22,10 @@ module.exports = {
         heading: 'var(--font-heading-family)',
       },
     },
-    color: {
+    colors: {
       black: '#000000',
+      background: 'var(--color-background)',
+      foreground: '#53eE',
     },
   },
   plugins: [require('flowbite/plugin')],
